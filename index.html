@@ -46,7 +46,7 @@
   <img src="images/logo.png" alt="Your Logo" id="logo" />
 
   <button id="startButton" onclick="startApp()">Start Prompt</button>
-  <button id="resetButton" onclick="resetApp()">Reset for Testing</button>
+
 
   <div id="prompt">Get ready...</div>
 
@@ -132,19 +132,7 @@ const prompts = [
       audio.onended = () => startCountdown(COUNTDOWN_SECONDS);
     }
 
-    function resetApp() {
-      recordingCount = 0;
-      document.getElementById('startButton').disabled = false;
-      document.getElementById('startButton').style.opacity = 1;
-      document.getElementById('startButton').style.cursor = 'pointer';
-
-      downloadLink.style.display = 'none';
-      stopButton.style.display = 'none';
-      promptDisplay.textContent = "Get ready...";
-      statusDisplay.textContent = "Preparing to record...";
-    }
-
-    function startCountdown(seconds) {
+  function startCountdown(seconds) {
       if (seconds > 0) {
         statusDisplay.textContent = `Recording starts in ${seconds}...`;
         setTimeout(() => startCountdown(seconds - 1), 1000);
